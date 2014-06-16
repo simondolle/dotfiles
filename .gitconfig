@@ -1,0 +1,51 @@
+[user]
+        name = Simon Dollé
+	email = simon@botify.com
+        signingkey = Simon Dollé <sdolle@botify.com>
+[color]
+        ui = auto
+[alias]
+        co = checkout
+        b = branch
+        c = commit
+        s = status
+
+        reviewr = !sh -c 'git push ltu $0:refs/publish/master'
+        reviewn = !sh -c 'git push ltu HEAD~$0:refs/publish/master'
+
+	#search
+	search =log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --grep
+
+	#branch graph
+	graph =log --graph --simplify-by-decoration --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
+
+        #history
+        ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate -n 10
+        ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat -n 10
+        lsn = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate -n
+        filelog = log -u
+        fl = log -u
+        #show last commit files
+        dl = "!git ll -1"
+        #show last commit diff
+        dlc = diff --cached HEAD^
+        #grep
+        grep = grep -Ii
+        gr = grep -Ii
+        #Find a file path in codebase
+        f = "!git ls-files | grep -i"
+        find = "!git ls-files | grep -i"
+[branch]
+        autosetuprebase = always
+[core]
+        editor = gvim --nofork 
+
+[browser "chromium"]
+  cmd = /usr/bin/google-chrome
+
+[instaweb]
+  browser=google-chrome
+[push]
+	default = simple
+[rebase]
+	autosquash = true
