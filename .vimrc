@@ -53,7 +53,8 @@ set textwidth=0
 set wrapmargin=0
 " set nowrap
 
-autocmd vimenter * NERDTree ~/src
+" open NERDTree panel automatically
+" autocmd vimenter * NERDTree ~/src
 let NERDTreeIgnore = ['\.pyc$']
 
 " highlight trailing white spaces
