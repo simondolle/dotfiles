@@ -32,7 +32,10 @@
 
         #Find a file path in codebase
         f = "!git ls-files | grep -i"
-        find = "!git ls-files | grep -i"
+	find = "!git ls-files | grep -i"
+
+	#Clean local merged branches
+	cleanbranches = "!git branch --merged | grep -v -e master -e devel | xargs -n 1 git branch -d"
 [branch]
 	#always pull with rebase
         autosetuprebase = always
