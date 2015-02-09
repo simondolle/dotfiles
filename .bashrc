@@ -20,12 +20,17 @@ fi
 
 #color prompt in red in case of error
 if [ $USE_COLOR_PROMPT -ne 0 ]; then
+  NO_COLOR=" \[\033[0m\]"
   BLACK_COLOR="\[\033[0m"
+  WHITE_COLOR="\033[1;37m"
+  GREEN_COLOR="\033[1;32m"
   RED_COLOR="\033[1;31m"
-  export PROMPT_COMMAND='if (($? > 0)); then echo -ne "$RED_COLOR"; fi'; export PS1="$BASIC_PROMPT$BLACK_COLOR"
+  export PROMPT_COMMAND='if (($? > 0)); then export PS1="$RED_COLOR$BASIC_PROMPT$NO_COLOR"; else export PS1="$GREEN_COLOR$BASIC_PROMPT$NO_COLOR"; fi'
 else
   unset PROMPT_COMMAND ; export PS1="$BASIC_PROMPT"
 fi
+
+
 
 
 #git autocomplete (not sure if necessary on windows)
