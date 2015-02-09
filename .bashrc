@@ -5,7 +5,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-BASIC_PROMPT="[\A \u@\h \W\$(parse_git_branch)] "
+BASIC_PROMPT="[\A \u@\h \W\$(parse_git_branch)]"
 PS1=$BASIC_PROMPT
 
 #color prompt works only on hosts that support color
