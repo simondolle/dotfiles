@@ -9,6 +9,7 @@
         b = branch
         c = commit
         s = status
+        cp = cherry-pick
 
 	#search
 	search =log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --grep
