@@ -1,7 +1,7 @@
 [user]
         name = Simon Dollé
-	email = simon@botify.com
-        signingkey = Simon Dollé <simon@botify.com>
+	email = simon.dolle@gmail.com
+        signingkey = Simon Dollé <simon.dolle@gmail.com>
 [color]
         ui = auto
 [alias]
