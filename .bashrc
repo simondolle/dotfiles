@@ -5,7 +5,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-BASIC_PROMPT="[\A \u@\h \W\$(parse_git_branch)]"
+BASIC_PROMPT="[\A \u@\h \W\$(parse_git_branch)] "
 PS1=$BASIC_PROMPT
 
 #color prompt works only on hosts that support color
@@ -20,11 +20,11 @@ fi
 
 #color prompt in red in case of error
 if [ $USE_COLOR_PROMPT -ne 0 ]; then
-  NO_COLOR=" \[\033[0m\]"
-  BLACK_COLOR="\[\033[0m"
-  WHITE_COLOR="\033[1;37m"
-  GREEN_COLOR="\033[1;32m"
-  RED_COLOR="\033[1;31m"
+  NO_COLOR="\[\033[0m\]"
+  BLACK_COLOR="\[\033[0m\]"
+  WHITE_COLOR="\[\033[1;37m\]"
+  GREEN_COLOR="\[\033[1;32m\]"
+  RED_COLOR="\[\033[1;31m\]"
   export PROMPT_COMMAND='if (($? > 0)); then export PS1="$RED_COLOR$BASIC_PROMPT$NO_COLOR"; else export PS1="$GREEN_COLOR$BASIC_PROMPT$NO_COLOR"; fi'
 else
   unset PROMPT_COMMAND ; export PS1="$BASIC_PROMPT"
