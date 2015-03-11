@@ -42,5 +42,7 @@ alias ll="ls -l"
 alias grep='grep -i --color'
 
 #history search
-bind '"\e[A"':history-search-backward
-bind '"\e[B"':history-search-forward
+if [ $TERM = "xterm" ]; then
+  bind '"\e[A"':history-search-backward
+  bind '"\e[B"':history-search-forward
+fi
